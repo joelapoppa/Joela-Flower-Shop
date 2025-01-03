@@ -140,7 +140,27 @@ button.secondary:hover {
   transform: scale(1.2);
 }
 
+#about .heading{
+  text-decoration: none;
+  color: #ff9fb2;
+  font-weight: bold;
+  font-size: 45px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
 
+#about .content h3 {
+  display: flex;
+  color: #ff9fb2;
+  font-weight: bold;
+  font-size: 35px;
+  justify-content: center;
+  align-items: center;
+
+
+}
        
   
 
