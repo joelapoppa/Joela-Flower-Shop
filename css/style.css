@@ -36,6 +36,10 @@ h1 {
   align-items: center;
   height: 12vh;
   background-color: white;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 
 #header .logo img {
@@ -154,6 +158,7 @@ button.secondary:hover {
   align-items: center;
   display: flex;
   flex-direction: column;
+  scroll-margin-top: 12vh;
 }
 
 #about .heading {
@@ -213,7 +218,9 @@ button.secondary:hover {
 }
 
 /* Product Container */
-
+#products {
+  scroll-margin-top: 12vh;
+}
 .product {
   position: relative;
   overflow: hidden;
@@ -492,7 +499,7 @@ footer {
   margin: auto;
   padding: 2rem 1rem;
   text-align: center;
-  scroll-margin-top: -10vh;
+  scroll-margin-top: 12vh;
 }
 
 .section__container h2 {
