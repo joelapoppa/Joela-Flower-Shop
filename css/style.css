@@ -492,6 +492,7 @@ footer {
   margin: auto;
   padding: 2rem 1rem;
   text-align: center;
+  scroll-margin-top: -10vh;
 }
 
 .section__container h2 {
