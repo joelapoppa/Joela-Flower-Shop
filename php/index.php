@@ -12,13 +12,14 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
+    <?php include "dbconfig.php";?>
     <!-- header secion starts -->
     <section id="header">
       <a href="#home" class="logo">
-        <img src="/images/labotanique-removebg-preview.png" alt="" />
+        <img src="../images/labotanique-removebg-preview.png" alt="" />
       </a>
 
       <ul class="navbar">
@@ -51,7 +52,7 @@
         <h3>Why choose us?</h3>
         <div class="content-box">
           <img
-            src="/images/labotanique-removebg-preview.png"
+            src="../images/labotanique-removebg-preview.png"
             alt=""
             class="sideimage"
           />
@@ -69,7 +70,7 @@
             most beautiful blooms from around the world. We use our creativity
             and artistry to design unique arrangements that are sure to impress.
           </p>
-          <img src="/images/OR_HERO_Florist.jpg" alt="" class="sideimage" />
+          <img src="../images/OR_HERO_Florist.jpg" alt="" class="sideimage" />
         </div>
       </div>
       <button class="primary">Learn More</button>
@@ -77,93 +78,33 @@
     <div id="products"></div>
     <section class="product">
       <h2 class="product-category">Our Flowers</h2>
-      <button class="pre-btn"><img src="/images/arrow.png" alt="" /></button>
-      <button class="nxt-btn"><img src="/images/arrow.png" alt="" /></button>
+      <button class="pre-btn"><img src="../images/arrow.png" alt="" /></button>
+      <button class="nxt-btn"><img src="../images/arrow.png" alt="" /></button>
       <div class="product-container">
+      <?php 
+          $sql = "SELECT * FROM products";
+          $result = $conn->query($sql);
+
+            if($result->num_rows > 0){
+              while($row=$result->fetch_assoc()){ ?>
         <div class="product-card">
           <div class="product-image">
             <span class="discount-tag">50% off</span>
-            <img src="/images/flower1.jpg" class="product-thumb" alt="" />
+            <img src="../images/<?php echo $row['photo']; ?>" class="product-thumb" alt="" />
             <button class="card-btn">add to wishlist</button>
           </div>
           <div class="product-info">
-            <h2 class="product-brand">brand</h2>
+            <h2 class="product-brand"><?php echo $row['product_name']; ?></h2>
             <p class="product-short-description">
-              a short line about the cloth..
+            <?php echo $row['description']; ?>
             </p>
-            <span class="price">$20</span><span class="actual-price">$40</span>
+            <span class="price">$<?php echo $row['price']; ?></span>
           </div>
         </div>
-        <div class="product-card">
-          <div class="product-image">
-            <span class="discount-tag">50% off</span>
-            <img src="/images/flower2.jpg" class="product-thumb" alt="" />
-            <button class="card-btn">add to wishlist</button>
-          </div>
-          <div class="product-info">
-            <h2 class="product-brand">brand</h2>
-            <p class="product-short-description">
-              a short line about the cloth..
-            </p>
-            <span class="price">$20</span><span class="actual-price">$40</span>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image">
-            <span class="discount-tag">50% off</span>
-            <img src="/images/flower3.jpg" class="product-thumb" alt="" />
-            <button class="card-btn">add to wishlist</button>
-          </div>
-          <div class="product-info">
-            <h2 class="product-brand">brand</h2>
-            <p class="product-short-description">
-              a short line about the cloth..
-            </p>
-            <span class="price">$20</span><span class="actual-price">$40</span>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image">
-            <span class="discount-tag">50% off</span>
-            <img src="/images/flower4.jpg" class="product-thumb" alt="" />
-            <button class="card-btn">add to wishlist</button>
-          </div>
-          <div class="product-info">
-            <h2 class="product-brand">brand</h2>
-            <p class="product-short-description">
-              a short line about the cloth..
-            </p>
-            <span class="price">$20</span><span class="actual-price">$40</span>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image">
-            <span class="discount-tag">50% off</span>
-            <img src="/images/flower5.png" class="product-thumb" alt="" />
-            <button class="card-btn">add to wishlist</button>
-          </div>
-          <div class="product-info">
-            <h2 class="product-brand">brand</h2>
-            <p class="product-short-description">
-              a short line about the cloth..
-            </p>
-            <span class="price">$20</span><span class="actual-price">$40</span>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image">
-            <span class="discount-tag">50% off</span>
-            <img src="/images/flower6.jpg" class="product-thumb" alt="" />
-            <button class="card-btn">add to wishlist</button>
-          </div>
-          <div class="product-info">
-            <h2 class="product-brand">brand</h2>
-            <p class="product-short-description">
-              a short line about the cloth..
-            </p>
-            <span class="price">$20</span><span class="actual-price">$40</span>
-          </div>
-        </div>
+        <?php
+        }
+      }
+?>
       </div>
     </section>
 
@@ -181,7 +122,7 @@
             that made it extra special. Exceptional service and attention to
             detail – I’ll definitely be back!
           </p>
-          <img src="/images/user-1.jpg" alt="user" />
+          <img src="../images/user-1.jpg" alt="user" />
           <h5>Allan Collins</h5>
           <h6>Client</h6>
         </div>
@@ -194,7 +135,7 @@
             delivered a breathtaking bouquet right on time. The flowers lasted
             over a week, and the fragrance was heavenly. Highly recommend!
           </p>
-          <img src="/images/user-2.jpg" alt="user" />
+          <img src="../images/user-2.jpg" alt="user" />
           <h5>Tanya Grant</h5>
           <h6>Client</h6>
         </div>
@@ -207,7 +148,7 @@
             staff was so helpful in understanding my vision and bringing it to
             life. Thank you for making my big day even more beautiful!
           </p>
-          <img src="/images/user-3.jpg" alt="user" />
+          <img src="../images/user-3.jpg" alt="user" />
           <h5>Clay Washington</h5>
           <h6>Client</h6>
         </div>

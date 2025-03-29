@@ -1,11 +1,11 @@
 @font-face {
   font-family: aston;
-  src: url(/fonts/Aston\ Script.ttf);
+  src: url(./fonts/Aston\ Script.ttf);
 }
 
 @font-face {
   font-family: mont;
-  src: url(/fonts/Montserrat-VariableFont_wght.ttf);
+  src: url(./fonts/Montserrat-VariableFont_wght.ttf);
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
@@ -93,7 +93,7 @@ button.secondary:hover {
 }
 
 #hero-banner {
-  background: url(/images/hero.jpg);
+  background-image: url("../images/hero.jpg");
   height: 88vh;
   background-size: cover;
   display: flex;
