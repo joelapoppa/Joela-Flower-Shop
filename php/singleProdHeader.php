@@ -11,7 +11,6 @@
       </ul>
 
       <div class="icon-container">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <i class="fa-solid fa-user"></i>
+      <a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
       </div>
     </section>

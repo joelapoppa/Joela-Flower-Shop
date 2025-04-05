@@ -1,8 +1,10 @@
 <?php
 include "dbconfig.php";
+
  // Include your database connection file
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cart'])) {
     $cart = json_decode($_POST['cart'], true);
+    var_dump($cart);
 } else {
     header("Location: cart.php");
     exit;
@@ -85,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cart'])) {
       <label for="email">Email:</label>
       <input type="email" name="email" required>
 
-      <input type="hidden" name="cart" value='<?php echo json_encode($cart); ?>'>
+      <input type="hidden" name="cart" value='<?php echo htmlspecialchars(json_encode($cart), ENT_QUOTES, 'UTF-8'); ?>'>
 
       <button type="submit" class="checkout-btn">Place Order</button>
     </form>

@@ -61,18 +61,16 @@ include 'dbconfig.php';
     />
 </head>
 <body>
+    
   <?php include 'singleProdHeader.php'; ?>
+
     <div class="cart-container">
         <h1 class="cart-title">Your Shopping Cart</h1>
         <?php
-        // Database connection
-        $conn = new mysqli('localhost', 'root', '', 'lulet_rjl');
+        include 'dbconfig.php';
 
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        
 
-        // Fetch cart data from the database
         $cart = [];
         $sql = "SELECT * FROM cart";
         $result = $conn->query($sql);
@@ -81,11 +79,13 @@ include 'dbconfig.php';
             while ($row = $result->fetch_assoc()) {
                 $cart[] = [
                     'product_name' => $row['product_name'],
-                    'quantity' => 1,
+                    'quantity' =>(int)$row['quantity'],
                     'price' => $row['price'],
                     'id' => $row['id']
                 ];
             }
+            var_dump($cart);
+
         }
 
         if (!empty($cart)) {
@@ -116,7 +116,7 @@ include 'dbconfig.php';
             echo '<div class="cart-summary">';
             echo '<p class="cart-total">Total: $' . number_format($totalPrice, 2) . '</p>';
             echo '<form action="checkout.php" method="POST">';
-            echo '<input type="hidden" name="cart" value="' . json_encode($cart) . '">';
+            echo '<input type="hidden" name="cart" value="' . htmlspecialchars(json_encode($cart)) . '">';
             echo '<button type="submit" class="checkout-btn">Proceed to Checkout</button>';
             echo '</form>';
             echo '</div>';
