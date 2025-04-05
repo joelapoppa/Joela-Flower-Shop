@@ -1,0 +1,134 @@
+main {
+  width: 100%;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url(../images/pattern2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: overlay;
+  background-color: #f3cbd3; /* Light pink with transparency */
+}
+
+main > div {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* main > div > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+} */
+
+.product-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.product-image img {
+  width: 350px;
+  height: 350px;
+  margin-right: 0;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  transition: border-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.product-image:hover img {
+  border-color: #ff66b2;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.product-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+  text-align: left;
+}
+
+main .product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: fit-content;
+  background-color: #f4e2e6;
+  border: #000000 1px solid;
+  border-radius: 15px;
+  padding: 1rem; /* Optional for spacing */
+  gap: 0.5rem;
+  margin-right: 200px; /* Optional for spacing between children */
+}
+main .product-info h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #343434;
+}
+
+main .product-info .price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #d10050;
+  margin: 0.5rem 0;
+}
+
+main .product-info .description {
+  font-size: 1.3rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+main .product-info form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+main .product-info label {
+  font-size: 0.95rem;
+  color: #222;
+}
+
+main .product-info input[type="number"] {
+  width: 60px;
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  text-align: center;
+}
+
+main .product-info button.primary {
+  background-color: #d10050;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  margin-top: 0.3rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+main .product-info button.primary:hover {
+  background-color: #a8003b;
+}

@@ -73,11 +73,11 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `product_name`, `price`, `description`, `stock`, `photo`) VALUES
 (1, 'Pink Lily Bouquet', 39, 'A vibrant arrangement of pink lilies in a clear vase. Elegant and fresh!', 11, 'flower1.jpg'),
-(2, 'Pink Lily Bouquet', 39, 'A vibrant arrangement of pink lilies in a clear vase. Elegant and fresh!', 11, 'flower1.jpg'),
-(3, 'Red Tulip Bouquet', 24, 'A classic red tulip arrangement in a glass vase, perfect for romantic occasions', 15, 'flower2.jpg'),
-(4, 'Mixed Tulip Bouquet', 49, 'A blend of red and yellow tulips, adding a lively and colorful touch.', 7, 'flower3.jpg'),
-(5, 'White and Pink Tulip Bouqet', 59, ' A soft elegant combination of pink and white tulips in a ceramic vase.', 3, 'flower4.jpg'),
-(6, 'White Lily Arragement', 64, ' A delicate and graceful display of white lilies in a minimalist vase.', 14, 'flower5,jpg');
+(2, 'Pink Lily Bouquet', 39, 'A vibrant arrangement of pink lilies in a clear vase. Elegant and fresh!', 11, 'flower2.jpg'),
+(3, 'Red Tulip Bouquet', 24, 'A classic red tulip arrangement in a glass vase, perfect for romantic occasions', 15, 'flower3.jpg'),
+(4, 'Mixed Tulip Bouquet', 49, 'A blend of red and yellow tulips, adding a lively and colorful touch.', 7, 'flower4.jpg'),
+(5, 'White and Pink Tulip Bouqet', 59, ' A soft elegant combination of pink and white tulips in a ceramic vase.', 3, 'flower5.png'),
+(6, 'White Lily Arragement', 64, ' A delicate and graceful display of white lilies in a minimalist vase.', 14, 'flower6.jpg');
 
 --
 -- Indexes for dumped tables

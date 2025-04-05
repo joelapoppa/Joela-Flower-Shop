@@ -17,24 +17,7 @@
   <body>
     <?php include "dbconfig.php";?>
     <!-- header secion starts -->
-    <section id="header">
-      <a href="#home" class="logo">
-        <img src="../images/labotanique-removebg-preview.png" alt="" />
-      </a>
-
-      <ul class="navbar">
-        <a href="#home"><li>HOME</li></a>
-        <a href="#about"><li>ABOUT</li></a>
-        <a href="#products"><li>FLOWERS</li></a>
-        <a href="#review"> <li>REVIEW</li></a>
-      </ul>
-
-      <div class="icon-container">
-        <i class="fa-solid fa-heart"></i>
-        <i class="fa-solid fa-cart-shopping"></i>
-        <i class="fa-solid fa-user"></i>
-      </div>
-    </section>
+    <?php include "header.php";?>
 
     <section id="hero-banner">
       <div class="overlay"></div>
@@ -91,7 +74,9 @@
           <div class="product-image">
             <span class="discount-tag">50% off</span>
             <img src="../images/<?php echo $row['photo']; ?>" class="product-thumb" alt="" />
-            <button class="card-btn">add to wishlist</button>
+            <a href="singleProd.php?id=<?php echo $row['id']; ?>">
+              <button type="submit" class="card-btn">View More</button>
+            </a>
           </div>
           <div class="product-info">
             <h2 class="product-brand"><?php echo $row['product_name']; ?></h2>
@@ -155,37 +140,8 @@
       </div>
     </section>
 
-    <footer>
-      <div class="footer-container">
-        <div class="footer-column">
-          <div class="footer-logo">
-            <img src="/images/labotanique-removebg-preview.png" alt="" />
-          </div>
-          <p>Your trusted destination for fresh, handpicked blooms.</p>
-        </div>
-        <div class="footer-column">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Our Services</a></li>
-            <li><a href="#shop">Shop Now</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Follow Us on Socials</h3>
-          <div class="footer-socials">
-            <a href="#facebook" title="Facebook">Facebook</a>
-            <a href="#instagram" title="Instagram">Instagram</a>
-            <a href="#tiktok" title="Tiktok">Tiktok</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        &copy; 2025 La Botanique. All rights reserved.
-      </div>
-    </footer>
+   <?php include "footer.php";?>
 
-    <script src="/js/script.js"></script>
+    <script src="../js/script.js"></script>
   </body>
 </html>
