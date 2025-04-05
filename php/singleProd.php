@@ -55,7 +55,8 @@ if (!$product) {
                         <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
                         <label for="quantity">Quantity:</label>
                         <input type="number" id="quantity" name="quantity" value="1" min="1" readonly>
-                        <button type="submit" class="primary">Add to Cart</button>
+                        <button type="submit" class="primary" name="add_to_cart">Add to Cart</button>
+                        
                     </form>
                 </div>
             </div>

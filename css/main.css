@@ -71,9 +71,9 @@ main .product-info {
   background-color: #f4e2e6;
   border: #000000 1px solid;
   border-radius: 15px;
-  padding: 1rem; /* Optional for spacing */
+  padding: 1rem;
   gap: 0.5rem;
-  margin-right: 200px; /* Optional for spacing between children */
+  margin-right: 200px;
 }
 main .product-info h1 {
   margin: 0;
