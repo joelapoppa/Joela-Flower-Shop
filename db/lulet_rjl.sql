@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2025 at 03:50 PM
+-- Generation Time: Apr 06, 2025 at 12:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,24 +18,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lulet rjl`
+-- Database: `lulet_rjl`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clients`
+-- Table structure for table `cart`
 --
 
-CREATE TABLE `clients` (
+CREATE TABLE `cart` (
   `id` int(11) NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `adress` int(11) NOT NULL,
-  `contact` varchar(255) NOT NULL,
-  `age` int(11) NOT NULL,
-  `card_info` int(16) NOT NULL
+  `product_name` varchar(255) NOT NULL,
+  `quantity` int(11) NOT NULL DEFAULT 1,
+  `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -45,12 +41,55 @@ CREATE TABLE `clients` (
 --
 
 CREATE TABLE `orders` (
-  `id` int(255) NOT NULL,
-  `client_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `total_price` float NOT NULL,
-  `data` date NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `order_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `name`, `address`, `email`, `order_date`) VALUES
+(24, 'test', 'test', 'test@mail.com', '2025-04-05'),
+(25, 'inf', 'infinite', 'try@mail.com', '2025-04-05'),
+(26, 'Fabest Sharra', 'Test', 'fabestsharra@gmail.com', '2025-04-05'),
+(27, 'tesg', 'test', '1234@mail.com', '2025-04-05'),
+(28, '123', 'test', 't1@mail.com', '2025-04-05'),
+(29, 'teest', 'teeeest', 'teeeeeeest@mail.com', '2025-04-05'),
+(30, 'Test', 'test', 'test@mail.com', '2025-04-05'),
+(31, 'test', 'test', 'test@mail.com', '2025-04-05'),
+(32, 'test', 'test per heren e 10909090-0', 'test@mail.com', '2025-04-05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_items`
+--
+
+CREATE TABLE `order_items` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `product_name` varchar(255) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `product_name`, `quantity`, `price`) VALUES
+(1, 28, 'Item 1', 2, 15.99),
+(2, 30, 'Pink Lily Bouquet', 1, 39.00),
+(3, 30, 'Mixed Tulip Bouquet', 1, 49.00),
+(4, 30, 'Mixed Tulip Bouquet', 1, 49.00),
+(5, 30, 'Red Tulip Bouquet', 1, 24.00),
+(6, 31, 'Red Tulip Bouquet', 1, 24.00),
+(7, 32, 'Red Tulip Bouquet', 1, 24.00),
+(8, 32, 'White Lily Arragement', 1, 64.00);
 
 -- --------------------------------------------------------
 
@@ -84,9 +123,9 @@ INSERT INTO `products` (`id`, `product_name`, `price`, `description`, `stock`, `
 --
 
 --
--- Indexes for table `clients`
+-- Indexes for table `cart`
 --
-ALTER TABLE `clients`
+ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -94,6 +133,13 @@ ALTER TABLE `clients`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `order_id` (`order_id`);
 
 --
 -- Indexes for table `products`
@@ -106,22 +152,38 @@ ALTER TABLE `products`
 --
 
 --
--- AUTO_INCREMENT for table `clients`
+-- AUTO_INCREMENT for table `cart`
 --
-ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `order_items`
+--
+ALTER TABLE `order_items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
